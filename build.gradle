@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")  // spring boot gradle plugin will used for generate jar
+    }
+}
+
+description = "Spring boot Gradle Example"
+apply plugin: 'java'                                // plugin for java
+apply plugin: 'org.springframework.boot'            // plugin for spring boot framework
+jar {
+    project.archivesBaseName = 'spring-boot-gradle-example'             // jar file name
+    project.version =  '1.0.0'                                  // application version
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+    compile('org.springframework.boot:spring-boot-starter-web:2.5.3')     // web application dependency
+}
+
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
+
+test {
+    useJUnitPlatform()
+}
+
+group 'spring-boot-demo'
+version '1.0-SNAPSHOT'
